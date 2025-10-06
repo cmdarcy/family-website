@@ -1,35 +1,156 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  Calendar,
+  Clock,
+  Users,
+  Megaphone,
+  Camera,
+  Utensils,
+  Dice6,
+} from "lucide-react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const scheduleItems = [
+    {
+      time: "6:00 PM",
+      title: "Family Portrait",
+      description: "Don't forget to bring your green!",
+      icon: Camera,
+      color: "bg-accent/10 text-accent",
+    },
+    {
+      time: "7:00 PM",
+      title: "Family Dinner",
+      description:
+        "Join us for a delicious potluck meal. Bring your favorite family recipe to share!",
+      icon: Utensils,
+      color: "bg-primary/10 text-primary",
+    },
+    {
+      time: "8:00 PM",
+      title: "Game",
+      description:
+        "Volleyball, frisbee, and games for all ages. Don't forget sunscreen!",
+      icon: Dice6,
+      color: "bg-primary/10 text-primary",
+    },
+  ];
+
+  const announcements = [
+    {
+      title: "Parking Information",
+      message:
+        "Please park in the main lot. Overflow parking available across the street.",
+    },
+    {
+      title: "Weather Update",
+      message: "Sunny skies expected! We'll have tents set up for shade.",
+    },
+    {
+      title: "Family Tree Display",
+      message:
+        "Check out our updated family tree in the main hall. Add any missing information!",
+    },
+  ];
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <header className="bg-primary text-primary-foreground py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-balance">
+            OBX Family Trip 2025
+          </h1>
+          <p className="text-xl md:text-2xl text-primary-foreground/90 text-pretty">
+            Together Again, Making Memories
+          </p>
+          <div className="mt-6 flex items-center justify-center gap-2 text-primary-foreground/80">
+            <Calendar className="w-5 h-5" />
+            <span className="text-lg">Monday, October 6th, 2025</span>
+          </div>
+        </div>
+      </header>
+
+      <main className="max-w-6xl mx-auto px-4 py-12">
+        {/* Schedule Section */}
+        <section className="mb-16">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl font-bold text-foreground mb-3">
+              Today's Schedule
+            </h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {scheduleItems.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <Card key={index} className="hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div
+                      className={`w-12 h-12 rounded-lg ${item.color} flex items-center justify-center mb-3`}
+                    >
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <Badge variant="secondary" className="w-fit mb-2">
+                      {item.time}
+                    </Badge>
+                    <CardTitle className="text-2xl">{item.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-base leading-relaxed">
+                      {item.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Announcements Section */}
+        <section>
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 mb-3">
+              <Megaphone className="w-8 h-8 text-accent" />
+              <h2 className="text-4xl font-bold text-foreground">
+                Announcements
+              </h2>
+            </div>
+            <p className="text-lg text-muted-foreground text-pretty">
+              Important information and updates for the day
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {announcements.map((announcement, index) => (
+              <Card
+                key={index}
+                className="bg-card hover:bg-secondary/50 transition-colors"
+              >
+                <CardHeader>
+                  <CardTitle className="text-xl">
+                    {announcement.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {announcement.message}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
