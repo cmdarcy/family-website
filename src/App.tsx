@@ -6,31 +6,52 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Megaphone, Camera, Utensils, Dice6 } from "lucide-react";
+import {
+  Calendar,
+  Megaphone,
+  Camera,
+  Utensils,
+  Wine,
+  Clover,
+} from "lucide-react";
 
 function App() {
   const scheduleItems = [
     {
+      time: "7:00 - 10:00 AM",
+      title: "Mini-Continental Breakfast",
+      location: "Main Kitchen",
+      icon: Utensils,
+      color: "bg-primary/10 text-primary",
+    },
+    {
+      time: "5:00 - 6:00 PM",
+      title: "Happy Hour",
+      description: "Red Wine Spritzers",
+      location: "Poolside",
+      icon: Wine,
+      color: "bg-primary/10 text-primary",
+    },
+    {
       time: "6:00 PM",
       title: "Family Portrait",
-      description: "Don't forget to bring your green!",
+      location: "1st floor Rec Room",
+      description:
+        "Meet on 1st floor Rec Room. Don't forget to bring your green!",
       icon: Camera,
-      color: "bg-accent/10 text-accent",
+      color: "bg-primary/10 text-primary",
     },
     {
       time: "7:00 PM",
-      title: "Family Dinner",
-      description:
-        "Join us for a delicious potluck meal. Bring your favorite family recipe to share!",
+      title: "Family Welcome Dinner",
       icon: Utensils,
       color: "bg-primary/10 text-primary",
     },
     {
       time: "8:00 PM",
-      title: "Game",
-      description:
-        "Volleyball, frisbee, and games for all ages. Don't forget sunscreen!",
-      icon: Dice6,
+      title: "Irish and Genealogy Night",
+      location: "Main Hall",
+      icon: Clover,
       color: "bg-primary/10 text-primary",
     },
   ];
@@ -154,7 +175,9 @@ function App() {
 
           <Card className="overflow-hidden">
             <CardHeader>
-              <CardTitle className="text-3xl font-bold">Irish Night</CardTitle>
+              <CardTitle className="text-3xl font-bold text-center">
+                Irish Night
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <img
