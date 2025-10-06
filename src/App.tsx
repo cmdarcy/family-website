@@ -6,15 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import {
-  Calendar,
-  Clock,
-  Users,
-  Megaphone,
-  Camera,
-  Utensils,
-  Dice6,
-} from "lucide-react";
+import { Calendar, Megaphone, Camera, Utensils, Dice6 } from "lucide-react";
 
 function App() {
   const scheduleItems = [
