@@ -140,6 +140,31 @@ function App() {
             ))}
           </div>
         </section>
+
+        {/* Today's Theme Section */}
+        <section className="mt-16">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl font-bold text-foreground mb-3">
+              Today's Theme
+            </h2>
+            <p className="text-lg text-muted-foreground text-pretty">
+              A special focus for our family activities today!
+            </p>
+          </div>
+
+          <Card className="overflow-hidden">
+            <CardHeader>
+              <CardTitle className="text-3xl font-bold">Irish Night</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <img
+                src="/irish.jpg"
+                alt="irish theme"
+                className="h-full w-full object-cover"
+              />
+            </CardContent>
+          </Card>
+        </section>
       </main>
     </div>
   );
