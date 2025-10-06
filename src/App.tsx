@@ -14,6 +14,7 @@ import {
   Wine,
   Clover,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 function App() {
   const scheduleItems = [
@@ -58,18 +59,14 @@ function App() {
 
   const announcements = [
     {
-      title: "Parking Information",
-      message:
-        "Please park in the main lot. Overflow parking available across the street.",
-    },
-    {
-      title: "Weather Update",
-      message: "Sunny skies expected! We'll have tents set up for shade.",
-    },
-    {
       title: "Family Tree Display",
       message:
         "Check out our updated family tree in the main hall. Add any missing information!",
+    },
+    {
+      title: "Add Your Photos",
+      message: "Click the link below to add your photos to the family album!",
+      link: "https://photos.app.goo.gl/fSmnT6sBvrhFFNVF9 ",
     },
   ];
 
@@ -156,6 +153,16 @@ function App() {
                   <p className="text-muted-foreground leading-relaxed">
                     {announcement.message}
                   </p>
+                  {announcement.link && (
+                    <div className="mt-4 ">
+                      <a href={announcement.link} target="_blank">
+                        <Button>
+                          <Camera className="w-6 h-6" />
+                          <span>Add Photos</span>
+                        </Button>
+                      </a>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))}
