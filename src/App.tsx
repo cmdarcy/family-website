@@ -12,7 +12,7 @@ import {
   Camera,
   Utensils,
   Wine,
-  Clover,
+  Ghost,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -28,31 +28,22 @@ function App() {
     {
       time: "5:00 - 6:00 PM",
       title: "Happy Hour",
-      description: "Red Wine Spritzers",
+      description: "Halloween",
       location: "Poolside",
       icon: Wine,
       color: "bg-primary/10 text-primary",
     },
     {
       time: "6:00 PM",
-      title: "Family Portrait",
-      location: "1st floor Rec Room",
-      description:
-        "Meet on 1st floor Rec Room. Don't forget to bring your green!",
-      icon: Camera,
-      color: "bg-primary/10 text-primary",
-    },
-    {
-      time: "7:00 PM",
-      title: "Family Welcome Dinner",
+      title: "Taco Tuesday",
       icon: Utensils,
       color: "bg-primary/10 text-primary",
     },
     {
-      time: "8:00 PM",
-      title: "Irish and Genealogy Night",
+      time: "7:30 PM",
+      title: "Costume Contest",
       location: "Main Hall",
-      icon: Clover,
+      icon: Ghost,
       color: "bg-primary/10 text-primary",
     },
   ];
@@ -83,7 +74,7 @@ function App() {
           </p>
           <div className="mt-6 flex items-center justify-center gap-2 text-primary-foreground/80">
             <Calendar className="w-5 h-5" />
-            <span className="text-lg">Monday, October 6th, 2025</span>
+            <span className="text-lg">Tuesday, October 7th, 2025</span>
           </div>
         </div>
       </header>
@@ -116,6 +107,8 @@ function App() {
                   <CardContent>
                     <CardDescription className="text-base leading-relaxed">
                       {item.description}
+                      <br />
+                      {item.location && <span>Location: {item.location}</span>}
                     </CardDescription>
                   </CardContent>
                 </Card>
@@ -183,13 +176,13 @@ function App() {
           <Card className="overflow-hidden">
             <CardHeader>
               <CardTitle className="text-3xl font-bold text-center">
-                Irish Night
+                Halloween Night
               </CardTitle>
             </CardHeader>
             <CardContent>
               <img
-                src="/irish.jpg"
-                alt="irish theme"
+                src="/halloween.jpg"
+                alt="halloween theme"
                 className="h-full w-full object-cover"
               />
             </CardContent>
