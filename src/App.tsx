@@ -15,6 +15,7 @@ import {
   Clover,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, Outlet } from "react-router";
 
 function App() {
   const scheduleItems = [
@@ -72,7 +73,15 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
+      <nav className="flex justify-center gap-4">
+        <Link to="/">Home</Link>
+        <Link to="/Monday">Monday</Link>
+        <Link to="/Tuesday">Tuesday</Link>
+        <Link to="/Wednesday">Wednesday</Link>
+        <Link to="/Thursday">Thursday</Link>
+        <Link to="/Friday">Friday</Link>
+        <Link to="/Saturday">Saturday</Link>
+      </nav>
       <header className="bg-primary text-primary-foreground py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-4 text-balance">
@@ -88,113 +97,8 @@ function App() {
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-4 py-12">
-        {/* Schedule Section */}
-        <section className="mb-16">
-          <div className="text-center mb-10">
-            <h2 className="text-4xl font-bold text-foreground mb-3">
-              Today's Schedule
-            </h2>
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {scheduleItems.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <Card key={index} className="hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div
-                      className={`w-12 h-12 rounded-lg ${item.color} flex items-center justify-center mb-3`}
-                    >
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <Badge variant="secondary" className="w-fit mb-2">
-                      {item.time}
-                    </Badge>
-                    <CardTitle className="text-2xl">{item.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base leading-relaxed">
-                      {item.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* Announcements Section */}
-        <section>
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 mb-3">
-              <Megaphone className="w-8 h-8 text-accent" />
-              <h2 className="text-4xl font-bold text-foreground">
-                Announcements
-              </h2>
-            </div>
-            <p className="text-lg text-muted-foreground text-pretty">
-              Important information and updates for the day
-            </p>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2">
-            {announcements.map((announcement, index) => (
-              <Card
-                key={index}
-                className="bg-card hover:bg-secondary/50 transition-colors"
-              >
-                <CardHeader>
-                  <CardTitle className="text-xl">
-                    {announcement.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {announcement.message}
-                  </p>
-                  {announcement.link && (
-                    <div className="mt-4 ">
-                      <a href={announcement.link} target="_blank">
-                        <Button>
-                          <Camera className="w-6 h-6" />
-                          <span>Add Photos</span>
-                        </Button>
-                      </a>
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Today's Theme Section */}
-        <section className="mt-16">
-          <div className="text-center mb-10">
-            <h2 className="text-4xl font-bold text-foreground mb-3">
-              Today's Theme
-            </h2>
-            <p className="text-lg text-muted-foreground text-pretty">
-              A special focus for our family activities today!
-            </p>
-          </div>
-
-          <Card className="overflow-hidden">
-            <CardHeader>
-              <CardTitle className="text-3xl font-bold text-center">
-                Irish Night
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <img
-                src="/irish.jpg"
-                alt="irish theme"
-                className="h-full w-full object-cover"
-              />
-            </CardContent>
-          </Card>
-        </section>
+      <main>
+        <Outlet />
       </main>
     </div>
   );
