@@ -12,7 +12,8 @@ import {
   Camera,
   Utensils,
   Wine,
-  Ghost,
+  Palette,
+  Music,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -28,23 +29,31 @@ function App() {
     {
       time: "5:00 - 6:00 PM",
       title: "Happy Hour",
-      description: "Halloween",
+      description: "Hawaiin Luau",
       location: "Poolside",
       icon: Wine,
       color: "bg-primary/10 text-primary",
     },
     {
       time: "6:00 PM",
-      title: "Taco Tuesday",
+      title: "Low Country Buffet",
       icon: Utensils,
       color: "bg-primary/10 text-primary",
+      location: "Main Kitchen",
     },
     {
       time: "7:30 PM",
-      title: "Costume Contest",
-      location: "Main Hall",
-      icon: Ghost,
+      title: "Paint Your Person",
+      icon: Palette,
       color: "bg-primary/10 text-primary",
+      location: "Main Hall",
+    },
+    {
+      time: "8:30 PM",
+      title: "Music Bingo",
+      icon: Music,
+      color: "bg-primary/10 text-primary",
+      location: "Main Hall",
     },
   ];
 
@@ -74,7 +83,7 @@ function App() {
           </p>
           <div className="mt-6 flex items-center justify-center gap-2 text-primary-foreground/80">
             <Calendar className="w-5 h-5" />
-            <span className="text-lg">Tuesday, October 7th, 2025</span>
+            <span className="text-lg">Wednesday, October 8th, 2025</span>
           </div>
         </div>
       </header>
@@ -176,13 +185,13 @@ function App() {
           <Card className="overflow-hidden">
             <CardHeader>
               <CardTitle className="text-3xl font-bold text-center">
-                Halloween Night
+                Hawaiian Luau
               </CardTitle>
             </CardHeader>
             <CardContent>
               <img
-                src="/halloween.jpg"
-                alt="halloween theme"
+                src="/hawaiian.jpg"
+                alt="hawaiian theme"
                 className="h-full w-full object-cover"
               />
             </CardContent>
