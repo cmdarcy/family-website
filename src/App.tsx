@@ -13,7 +13,7 @@ import {
   Utensils,
   Wine,
   Palette,
-  Music,
+  Dice6,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -27,31 +27,31 @@ function App() {
       color: "bg-primary/10 text-primary",
     },
     {
+      time: "10:00 - 2:00 PM",
+      title: "Crafts",
+      location: "Main Hall",
+      icon: Palette,
+      color: "bg-primary/10 text-primary",
+    },
+    {
       time: "5:00 - 6:00 PM",
       title: "Happy Hour",
-      description: "Hawaiin Luau",
+      description: "Decades",
       location: "Poolside",
       icon: Wine,
       color: "bg-primary/10 text-primary",
     },
     {
       time: "6:00 PM",
-      title: "Low Country Buffet",
+      title: "Pasta Dinner",
       icon: Utensils,
       color: "bg-primary/10 text-primary",
       location: "Main Kitchen",
     },
     {
-      time: "7:30 PM",
-      title: "Paint Your Person",
-      icon: Palette,
-      color: "bg-primary/10 text-primary",
-      location: "Main Hall",
-    },
-    {
-      time: "8:30 PM",
-      title: "Music Bingo",
-      icon: Music,
+      time: "8:00 PM",
+      title: "Bingo",
+      icon: Dice6,
       color: "bg-primary/10 text-primary",
       location: "Main Hall",
     },
@@ -185,13 +185,13 @@ function App() {
           <Card className="overflow-hidden">
             <CardHeader>
               <CardTitle className="text-3xl font-bold text-center">
-                Hawaiian Luau
+                Decades
               </CardTitle>
             </CardHeader>
             <CardContent>
               <img
-                src="/hawaiian.jpg"
-                alt="hawaiian theme"
+                src="/decades.jpg"
+                alt="decades theme"
                 className="h-full w-full object-cover"
               />
             </CardContent>
